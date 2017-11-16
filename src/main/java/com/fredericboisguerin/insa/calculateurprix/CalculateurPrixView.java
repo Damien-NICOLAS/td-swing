@@ -19,10 +19,17 @@ public class CalculateurPrixView extends JFrame {
         super("Calculateur de prix");
         this.presenter = new CalculateurPrixPresenter(this);
 
+
+
         JLabel prixArticleLabel = new JLabel("Prix d'un article (€) : ");
         JTextField prixArticleTextField = new JTextField(10);
         prixArticleLabel.setLabelFor(prixArticleTextField);
         prixArticleTextField.setToolTipText("Entrez ici le montant d'un article");
+
+        JLabel nombreArticleLabel = new JLabel("Quantité : ");
+        JTextField nombreArticleTextField = new JTextField(10);
+        nombreArticleLabel.setLabelFor(nombreArticleTextField);
+        nombreArticleTextField.setToolTipText("Entrez ici la quantité d'article voulue ");
 
         JLabel montantHTLabel = new JLabel("Montant HT : ");
         JFormattedTextField montantHTTextField = new JFormattedTextField(NumberFormat.getCurrencyInstance());
@@ -39,10 +46,12 @@ public class CalculateurPrixView extends JFrame {
 
         JPanel labelPane = new JPanel(new GridLayout(0, 1));
         labelPane.add(prixArticleLabel);
+        labelPane.add(nombreArticleLabel);
         labelPane.add(montantHTLabel);
 
         JPanel fieldPane = new JPanel(new GridLayout(0, 1));
         fieldPane.add(prixArticleTextField);
+        fieldPane.add(nombreArticleTextField);
         fieldPane.add(montantHTTextField);
 
         contentPane.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
