@@ -13,11 +13,9 @@ public class CalculateurPrixPresenter {
 
         float montantHTAsFloat = montantArticleAsFloat * quantiteArticleAsInt;
 
-        String montantHTAsText = String.valueOf(montantHTAsFloat);
 
-        calculateurPrixView.afficherMontantHorsTaxe(montantHTAsText);
+        calculateurPrixView.afficherMontantHorsTaxe(montantHTAsFloat);
 
-        calculateurPrixView.afficherErreur(montantHTAsText);
 
 
 

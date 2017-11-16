@@ -15,43 +15,51 @@ public class CalculateurPrixView extends JFrame {
 
     private final CalculateurPrixPresenter presenter;
 
+    private JLabel prixArticleLabel = new JLabel("Prix d'un article (€) : ");
+    private JTextField prixArticleTextField = new JTextField(10);
+
+    private JLabel nombreArticleLabel = new JLabel("Quantité : ");
+    private JTextField nombreArticleTextField = new JTextField(10);
+
+    private JLabel montantHTLabel = new JLabel("Montant HT : ");
+    private JFormattedTextField montantHTTextField = new JFormattedTextField(NumberFormat.getCurrencyInstance());
+
+    private JButton computeButton = new JButton("Calculer");
+
+    private JPanel contentPane = new JPanel();
+
+    private JPanel labelPane = new JPanel(new GridLayout(0, 1));
+
+    private JPanel fieldPane = new JPanel(new GridLayout(0, 1));
+
+
 
 
     public CalculateurPrixView() throws HeadlessException {
         super("Calculateur de prix");
         this.presenter = new CalculateurPrixPresenter(this);
 
-
-
-        JLabel prixArticleLabel = new JLabel("Prix d'un article (€) : ");
-        JTextField prixArticleTextField = new JTextField(10);
         prixArticleLabel.setLabelFor(prixArticleTextField);
         prixArticleTextField.setToolTipText("Entrez ici le montant d'un article");
 
-        JLabel nombreArticleLabel = new JLabel("Quantité : ");
-        JTextField nombreArticleTextField = new JTextField(10);
+
         nombreArticleLabel.setLabelFor(nombreArticleTextField);
         nombreArticleTextField.setToolTipText("Entrez ici la quantité d'article voulue ");
 
-        JLabel montantHTLabel = new JLabel("Montant HT : ");
-        JFormattedTextField montantHTTextField = new JFormattedTextField(NumberFormat.getCurrencyInstance());
         montantHTTextField.setValue(15);
         montantHTTextField.setEditable(false);
         montantHTLabel.setLabelFor(montantHTTextField);
 
-        JButton computeButton = new JButton("Calculer");
+
         computeButton.addActionListener(e -> this.presenter.onComputeButtonClicked(prixArticleTextField.getText(), nombreArticleTextField.getText()));
 
-        JPanel contentPane = new JPanel();
         setContentPane(contentPane);
 
 
-        JPanel labelPane = new JPanel(new GridLayout(0, 1));
         labelPane.add(prixArticleLabel);
         labelPane.add(nombreArticleLabel);
         labelPane.add(montantHTLabel);
 
-        JPanel fieldPane = new JPanel(new GridLayout(0, 1));
         fieldPane.add(prixArticleTextField);
         fieldPane.add(nombreArticleTextField);
         fieldPane.add(montantHTTextField);
@@ -70,7 +78,11 @@ public class CalculateurPrixView extends JFrame {
         showMessageDialog(this, message, "Erreur", ERROR_MESSAGE);
     }
 
-    public void afficherMontantHorsTaxe(String leMontantHTAsString){
+    public void afficherMontantHorsTaxe(float leMontantHTAsFloat){
+
+
+
+        montantHTTextField.setValue(leMontantHTAsFloat);
 
 
 
