@@ -34,11 +34,10 @@ public class CalculateurPrixView extends JFrame {
 
     private JPanel contentPane = new JPanel();
 
-    private JPanel labelPane = new JPanel();
-    private GridLayout labelPaneGridLayout = new GridLayout(0, 1);
+    private JPanel labelEtFieldPane = new JPanel();
+    private GridLayout labelEtFieldPaneGridLayout = new GridLayout(5, 2);
 
-    private JPanel fieldPane = new JPanel();
-    private GridLayout fieldPaneGridLayout = new GridLayout(0, 1);
+
 
 
 
@@ -77,30 +76,26 @@ public class CalculateurPrixView extends JFrame {
 
         setContentPane(contentPane);
 
-        labelPaneGridLayout.setHgap(5);
-        fieldPaneGridLayout.setHgap(5);
+        labelEtFieldPane.setLayout(labelEtFieldPaneGridLayout);
 
-        labelPane.setLayout(labelPaneGridLayout);
-        fieldPane.setLayout(fieldPaneGridLayout);
+        labelEtFieldPane.add(prixArticleLabel);
+        labelEtFieldPane.add(prixArticleTextField);
 
+        labelEtFieldPane.add(nombreArticleLabel);
+        labelEtFieldPane.add(nombreArticleTextField);
 
-        labelPane.add(prixArticleLabel);
-        labelPane.add(nombreArticleLabel);
-        labelPane.add(paysLabel);
-        labelPane.add(montantHTLabel);
-        labelPane.add(montantTTCLabel);
+        labelEtFieldPane.add(paysLabel);
+        labelEtFieldPane.add(paysCombo);
 
+        labelEtFieldPane.add(montantHTLabel);
+        labelEtFieldPane.add(montantHTTextField);
 
+        labelEtFieldPane.add(montantTTCLabel);
+        labelEtFieldPane.add(montantTTCTextField);
 
-        fieldPane.add(prixArticleTextField);
-        fieldPane.add(nombreArticleTextField);
-        fieldPane.add(paysCombo);
-        fieldPane.add(montantHTTextField);
-        fieldPane.add(montantTTCTextField);
 
         contentPane.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-        add(labelPane, WEST);
-        add(fieldPane, EAST);
+        add(labelEtFieldPane, WEST);
         add(computeButton, SOUTH);
 
         prixArticleTextField.requestFocus();
