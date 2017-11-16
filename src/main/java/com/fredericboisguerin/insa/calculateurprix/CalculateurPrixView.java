@@ -15,6 +15,8 @@ public class CalculateurPrixView extends JFrame {
 
     private final CalculateurPrixPresenter presenter;
 
+
+
     public CalculateurPrixView() throws HeadlessException {
         super("Calculateur de prix");
         this.presenter = new CalculateurPrixPresenter(this);
@@ -38,11 +40,11 @@ public class CalculateurPrixView extends JFrame {
         montantHTLabel.setLabelFor(montantHTTextField);
 
         JButton computeButton = new JButton("Calculer");
-        computeButton.addActionListener(e -> this.presenter.onComputeButtonClicked(prixArticleTextField.getText()));
+        computeButton.addActionListener(e -> this.presenter.onComputeButtonClicked(prixArticleTextField.getText(), nombreArticleTextField.getText()));
 
         JPanel contentPane = new JPanel();
         setContentPane(contentPane);
-        contentPane.add(prixArticleTextField);
+
 
         JPanel labelPane = new JPanel(new GridLayout(0, 1));
         labelPane.add(prixArticleLabel);
@@ -67,6 +69,17 @@ public class CalculateurPrixView extends JFrame {
     public void afficherErreur(String message) {
         showMessageDialog(this, message, "Erreur", ERROR_MESSAGE);
     }
+
+    public void afficherMontantHorsTaxe(String leMontantHTAsString){
+
+
+
+
+
+
+
+    }
+
 
     public void display() {
         this.pack();

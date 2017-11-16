@@ -7,7 +7,21 @@ public class CalculateurPrixPresenter {
         this.calculateurPrixView = calculateurPrixView;
     }
 
-    public void onComputeButtonClicked(String montantArticleAsText) {
-        calculateurPrixView.afficherErreur("Allez, au boulot ! :)");
+    public void onComputeButtonClicked(String montantArticleAsText, String quantiteArticleAsText) {
+        float montantArticleAsFloat = Float.parseFloat(montantArticleAsText);
+        int quantiteArticleAsInt = Integer.parseInt(quantiteArticleAsText);
+
+        float montantHTAsFloat = montantArticleAsFloat * quantiteArticleAsInt;
+
+        String montantHTAsText = String.valueOf(montantHTAsFloat);
+
+        calculateurPrixView.afficherMontantHorsTaxe(montantHTAsText);
+
+        calculateurPrixView.afficherErreur(montantHTAsText);
+
+
+
+
+
     }
 }
