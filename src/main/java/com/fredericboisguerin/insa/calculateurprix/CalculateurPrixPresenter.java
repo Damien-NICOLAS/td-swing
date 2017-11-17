@@ -33,7 +33,7 @@ public class CalculateurPrixPresenter {
             ilExisteUneErreur = true;
         }
         if(quantiteArticleAsText.matches("\\d+([,.]\\d*)")){
-            calculateurPrixView.afficherErreur("Le champ \" quantité de l'article\" doit contenir une valeur numérique entière !\"");
+            calculateurPrixView.afficherErreur("Le champ \"quantité de l'article\" doit contenir une valeur numérique entière !\"");
             ilExisteUneErreur = true;
 
         }
