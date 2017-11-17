@@ -107,6 +107,7 @@ public class CalculateurPrixView extends JFrame {
         showMessageDialog(this, message, "Erreur", ERROR_MESSAGE);
     }
 
+
     public void afficherMontantHorsTaxe(float leMontantHTAsFloat){
 
         montantHTTextField.setValue(leMontantHTAsFloat);
