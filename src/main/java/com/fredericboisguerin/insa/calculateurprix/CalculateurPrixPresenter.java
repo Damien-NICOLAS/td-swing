@@ -29,7 +29,7 @@ public class CalculateurPrixPresenter {
         }
 
         if (quantiteArticleAsText.matches("[a-zA-Z]")){
-            calculateurPrixView.afficherErreur("Le champ \" quantité de l'article\" doit contenir une valeur numérique !");
+            calculateurPrixView.afficherErreur("Le champ \"quantité de l'article\" doit contenir une valeur numérique !");
             ilExisteUneErreur = true;
         }
         if(quantiteArticleAsText.matches("\\d+([,.]\\d*)")){
